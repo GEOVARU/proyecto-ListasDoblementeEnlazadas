@@ -1,7 +1,7 @@
 
 package FRONTEND;
 
-import BACKEND.clsLista;
+import BACKEND.clsListas;
 import BACKEND.clsLista2;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -13,8 +13,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     
     Queue<Integer> Cola = new LinkedList<>();
     Stack<Integer> Pila = new Stack<>();
-    clsLista MiLista = new clsLista();
-    clsLista2 MiLista2 = new clsLista2();
+    clsListas MiLista = new clsListas();
+    // clsLista2 MiLista2 = new clsLista2();
+    //   clsListas MiLista = new clsListas();
     
     public frmPrincipal() {
         initComponents();
@@ -274,11 +275,11 @@ public class frmPrincipal extends javax.swing.JFrame {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(ct2Direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ct2Correo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ct2Fecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ct2Nombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ctLista2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ct2Grado, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ct2Seccion, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(ct2Seccion, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ct2Fecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(115, 115, 115)
                                 .addComponent(btnAgregarLista2)))
@@ -342,8 +343,8 @@ public class frmPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addGap(8, 8, 8)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ct2Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
+                            .addComponent(jLabel9)
+                            .addComponent(ct2Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(13, 13, 13)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ct2Correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -492,11 +493,11 @@ public class frmPrincipal extends javax.swing.JFrame {
                                    if(!"".equals(ct2Seccion.getText()) ){
                  
             
-            MiLista2.Insertar( Integer.valueOf(ctLista2.getText()), ct2Nombre.getText(),  ct2Fecha.getText(),  ct2Correo.getText(),  ct2Direccion.getText() ,  Integer.valueOf(ct2Grado.getText()),  ct2Seccion.getText());
+            MiLista.Insertare( Integer.valueOf(ctLista2.getText()), ct2Nombre.getText(),  ct2Fecha.getText(),  ct2Correo.getText(),  ct2Direccion.getText() ,  Integer.valueOf(ct2Grado.getText()),  ct2Seccion.getText());
             /*lbLista.setText(lbLista.getText() + ", " + ctLista.getText()); */
             ctLista2.setText("");
             /* ctListaEnlanzada.setText( MiLista.Mostrar());    */
-            areaLista2.setText( MiLista2.Mostrar());
+            areaLista2.setText( MiLista.mostrarTodo());
             
             
              }else{

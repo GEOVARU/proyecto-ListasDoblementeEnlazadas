@@ -154,11 +154,11 @@
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="ct2Direccion" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
                                       <Component id="ct2Correo" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
-                                      <Component id="ct2Fecha" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                                       <Component id="ct2Nombre" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                                       <Component id="ctLista2" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                                       <Component id="ct2Grado" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
                                       <Component id="ct2Seccion" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
+                                      <Component id="ct2Fecha" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -244,8 +244,8 @@
                           </Group>
                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="ct2Fecha" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ct2Fecha" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">

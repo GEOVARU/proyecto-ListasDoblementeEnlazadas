@@ -110,6 +110,7 @@ public class clsLista {
                 Resp = Resp + "     " + String.valueOf(objGrado.codigo) + "-"+ String.valueOf(objGrado.seccion) + "-" +  String.valueOf(objGrado.grado)+ "-" +  String.valueOf(objGrado.nivel)+ "-" +  String.valueOf(objGrado.profesor);
             }
             objGrado = objGrado.ptrAdelante;
+               System.out.println(Resp);
         }
         return Resp;
     }

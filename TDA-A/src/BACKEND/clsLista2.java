@@ -3,19 +3,17 @@ package BACKEND;
 
 
 public class clsLista2 {
-    
 
     //estudiantes
     private clsEstudiante ptrInicio, ptrFinal; 
     
     
     public clsLista2() {
-        
         //ESTUDIANTES
          ptrInicio = null;
          ptrFinal = null;
     }
- 
+    /** funciones **/
     public boolean ListaVacia(){
         boolean Resp = false;
         if(ptrInicio == null){
@@ -23,7 +21,6 @@ public class clsLista2 {
         }
         return Resp;
     } 
-    
     public void Insertar(int pclave, String pnombre, String pfecha, String pcorreo, String pdireccion, int pgrado, String pseccion){
         
         
@@ -43,7 +40,6 @@ public class clsLista2 {
         //imprimir que valores vienen - tiene que venir los mismos valores
         //System.out.println(pclave);
         //System.out.println(objEstudiante.clave);
-                            
             if(ListaVacia()==true){  // Lista Vacia estudiante
                 ptrInicio = objEstudiante;
                 ptrFinal = objEstudiante;
@@ -53,12 +49,13 @@ public class clsLista2 {
                 clsEstudiante ptrAuxSig = ptrInicio;
                 clsEstudiante ptrAuxAnt = null;
 
-                //siclo
-                    
                 while(ptrAuxSig!= null  && Salir == false){
                     if(ptrAuxSig.clave < pclave && ptrAuxSig.clave != pclave ){
                     ptrAuxAnt = ptrAuxSig;  //SACO COPIA
                     ptrAuxSig = ptrAuxSig.ptrAbajo;
+                    System.out.println("es mayor a todos");
+                    
+                    
                     }else{
                         if(ptrAuxSig == ptrInicio){  //VALIDO SI ES EL INICIO DE LA LISTA
                             if( ptrAuxSig.clave == pclave ){
@@ -68,6 +65,7 @@ public class clsLista2 {
                                 objEstudiante.ptrAbajo = ptrAuxSig;
                                 ptrAuxSig.ptrArriba = objEstudiante;
                                 ptrInicio = objEstudiante;
+                                System.out.println("Es el menor de todos");
                                 Salir = true;
                             }
                         }else{
@@ -81,10 +79,12 @@ public class clsLista2 {
                                 ptrAuxAnt.ptrAbajo = objEstudiante;
                                 ptrAuxSig.ptrArriba = objEstudiante;
                                 Salir = true;
+                               
                             }
-                        }
-                    }  
+                        }  
+                    }
                 }
+                
                 if(ptrAuxAnt==ptrFinal){  // El codigo del nodo es superior a todos los de la lista
                     objEstudiante.ptrArriba = ptrAuxAnt;
                     ptrAuxAnt.ptrAbajo = objEstudiante;
@@ -106,25 +106,6 @@ public class clsLista2 {
          */
         return Resp;
     }    
-    
-    public String Mostrar(){
-        String Resp = "";
-        String ES  = "";
-        clsEstudiante objEstudiante = ptrInicio;
-        while(objEstudiante!= null){
-            //System.out.println(String.valueOf(objEstudiante.codigo));
-            if(Resp.equals("")){
-                Resp = String.valueOf(objEstudiante.clave) + "-"+ String.valueOf(objEstudiante.nombre) + "-" +  String.valueOf(objEstudiante.fecha)+ "-" +  String.valueOf(objEstudiante.correo)+ "-" +  String.valueOf(objEstudiante.direccion)+ "-" +  String.valueOf(objEstudiante.grado)+ "-" +  String.valueOf(objEstudiante.seccion) ;           
-            }else{
-           
-                Resp = Resp + "     " + String.valueOf(objEstudiante.clave) + "-"+ String.valueOf(objEstudiante.nombre) + "-" +  String.valueOf(objEstudiante.fecha)+ "-" +  String.valueOf(objEstudiante.correo)+ "-" +  String.valueOf(objEstudiante.direccion)+ "-" +  String.valueOf(objEstudiante.grado)+ "-" +  String.valueOf(objEstudiante.seccion);
-            }
-            objEstudiante = objEstudiante.ptrAbajo;
-        }
-        return Resp;
-    }
-    
-    
     public String MostrarInverso(){
         String Resp ="";
         clsEstudiante objEstudiante = ptrFinal;
@@ -138,5 +119,33 @@ public class clsLista2 {
         }
         return Resp;
     }
-    
+     public String Mostrar(){
+        String Resp = "";
+        String ES  = "";
+        clsEstudiante objEstudiante = ptrInicio;
+        while(objEstudiante!= null){
+            //System.out.println(String.valueOf(objEstudiante.codigo));
+            if(Resp.equals("")){
+                Resp = String.valueOf(objEstudiante.clave) + "-"+ String.valueOf(objEstudiante.nombre) + "-" +  String.valueOf(objEstudiante.fecha)+ "-" +  String.valueOf(objEstudiante.correo)+ "-" +  String.valueOf(objEstudiante.direccion)+ "-" +  String.valueOf(objEstudiante.grado)+ "-" +  String.valueOf(objEstudiante.seccion) ;           
+            }else{
+           
+                Resp = Resp + "     " + String.valueOf(objEstudiante.clave) + "-"+ String.valueOf(objEstudiante.nombre) + "-" +  String.valueOf(objEstudiante.fecha)+ "-" +  String.valueOf(objEstudiante.correo)+ "-" +  String.valueOf(objEstudiante.direccion)+ "-" +  String.valueOf(objEstudiante.grado)+ "-" +  String.valueOf(objEstudiante.seccion);
+            }
+            objEstudiante = objEstudiante.ptrAbajo;
+            
+            System.out.println(Resp);
+        }
+        return Resp;
+    }
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
 }
