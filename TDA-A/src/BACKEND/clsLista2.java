@@ -113,8 +113,10 @@ public class clsLista2 {
                             Salir = true;
                              
                         }
+                        SalirGRADO = true;
                        
                     }
+                     SalirGRADO = true;
                 }  
                
                 if(ptrAuxAnt==ptrFinal){  // El codigo del nodo es superior a todos los de la lista
