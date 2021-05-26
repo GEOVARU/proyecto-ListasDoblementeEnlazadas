@@ -6,6 +6,7 @@ import BACKEND.clsLista2;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
+
 import javax.swing.JOptionPane;
 
 public class frmPrincipal extends javax.swing.JFrame {
@@ -460,12 +461,49 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ct2SeccionActionPerformed
 
     private void btnAgregarLista2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLista2ActionPerformed
-        MiLista2.Insertar( Integer.valueOf(ctLista2.getText()), ct2Nombre.getText(),  ct2Fecha.getText(),  ct2Correo.getText(),  ct2Direccion.getText() ,  Integer.valueOf(ct2Grado.getText()),  ct2Seccion.getText());
+        if(!"".equals(ctLista2.getText()) ){
+            if(!"".equals(ct2Nombre.getText()) ){
+                 if(!"".equals(ct2Fecha.getText()) ){
+                      if(!"".equals(ct2Correo.getText()) ){
+                           if(!"".equals(ct2Direccion.getText()) ){
+                               if(!"".equals(ct2Grado.getText()) ){
+                                   if(!"".equals(ct2Seccion.getText()) ){
+                 
+            
+            MiLista2.Insertar( Integer.valueOf(ctLista2.getText()), ct2Nombre.getText(),  ct2Fecha.getText(),  ct2Correo.getText(),  ct2Direccion.getText() ,  Integer.valueOf(ct2Grado.getText()),  ct2Seccion.getText());
+            /*lbLista.setText(lbLista.getText() + ", " + ctLista.getText()); */
+            ctLista2.setText("");
+            /* ctListaEnlanzada.setText( MiLista.Mostrar());    */
+            areaLista2.setText( MiLista2.Mostrar());
+            
+            
+             }else{
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
+        }
+                                    }else{
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
+        }
+                                }else{
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
+        }
+              }else{
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
+        }
+              }else{
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
+        }
+              }else{
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
+        }
+            
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
+        }
         
-        /*lbLista.setText(lbLista.getText() + ", " + ctLista.getText()); */
-        ctLista2.setText("");
-        /* ctListaEnlanzada.setText( MiLista.Mostrar());    */
-        areaLista2.setText( MiLista2.Mostrar()); 
+       
+        
+        
     }//GEN-LAST:event_btnAgregarLista2ActionPerformed
 
     /**

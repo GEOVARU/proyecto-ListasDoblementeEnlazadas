@@ -38,23 +38,28 @@ public class clsLista {
         
             while(ptrAuxSig!= null  && Salir == false){
                 
-                if(ptrAuxSig.codigo < pcodigo ){
+                if(ptrAuxSig.codigo < pcodigo && ptrAuxSig.codigo != pcodigo ){
                     ptrAuxAnt = ptrAuxSig;  //SACO COPIA
                     ptrAuxSig = ptrAuxSig.ptrAdelante;
                 }else
-                
                 {
                     if(ptrAuxSig == ptrInicio){  //VALIDO SI ES EL INICIO DE LA LISTA
                         objGrado.ptrAdelante = ptrAuxSig;
                         ptrAuxSig.ptrAtras = objGrado;
                         ptrInicio = objGrado;
+                         System.out.println("primer dato");
                         Salir = true;
                     }else{
-                        objGrado.ptrAdelante = ptrAuxSig;
-                        objGrado.ptrAtras = ptrAuxAnt;
-                        ptrAuxAnt.ptrAdelante = objGrado;
-                        ptrAuxSig.ptrAtras = objGrado;
-                        Salir = true;
+                        if( ptrAuxSig.codigo == pcodigo ){
+                            System.out.println("DATO YA EXISTENTE");
+                            Salir = true;
+                        }else{
+                            objGrado.ptrAdelante = ptrAuxSig;
+                            objGrado.ptrAtras = ptrAuxAnt;
+                            ptrAuxAnt.ptrAdelante = objGrado;
+                            ptrAuxSig.ptrAtras = objGrado;
+                            Salir = true;
+                        }
                     }
                 }
             }  
@@ -85,6 +90,7 @@ public class clsLista {
         String Resp = "";
         String ES  = "";
         clsGrado objGrado = ptrInicio;
+        //revisamos que haya por lo menos un dato en la lista
         while(objGrado!= null){
             //System.out.println(String.valueOf(objGrado.codigo));
             if(Resp.equals("")){
@@ -109,7 +115,9 @@ public class clsLista {
                 Resp = Resp + ", " + String.valueOf(objGrado.codigo);
             }
             objGrado = objGrado.ptrAtras;
+              System.out.println(Resp);
         }
+        System.out.println(Resp);
         return Resp;
     }
     

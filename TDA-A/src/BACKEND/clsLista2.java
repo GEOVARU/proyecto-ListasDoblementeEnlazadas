@@ -28,11 +28,15 @@ public class clsLista2 {
         objEstudiante.direccion = pdireccion;
          objEstudiante.grado = pgrado;
         objEstudiante.seccion = pseccion;
-        
+        //punteros
         objEstudiante.ptrArriba = null;
         objEstudiante.ptrAbajo = null;
         boolean Salir = false;
-        
+        //imprimir que valores vienen - tiene que venir los mismos valores
+        System.out.println(pclave);
+        System.out.println(objEstudiante.clave);
+                            
+                    
         if(ListaVacia()==true){  // Lista Vacia
             ptrInicio = objEstudiante;
             ptrFinal = objEstudiante;
@@ -42,25 +46,39 @@ public class clsLista2 {
         
             while(ptrAuxSig!= null  && Salir == false){
                 
-                if(ptrAuxSig.clave < pclave ){
-                    ptrAuxAnt = ptrAuxSig;  //SACO COPIA
-                    ptrAuxSig = ptrAuxSig.ptrAbajo;
-                }else
-                
-                {
+                if(ptrAuxSig.clave < pclave && ptrAuxSig.clave != pclave ){
+                ptrAuxAnt = ptrAuxSig;  //SACO COPIA
+                ptrAuxSig = ptrAuxSig.ptrAbajo;
+                }else{
+                    
                     if(ptrAuxSig == ptrInicio){  //VALIDO SI ES EL INICIO DE LA LISTA
                         objEstudiante.ptrAbajo = ptrAuxSig;
                         ptrAuxSig.ptrArriba = objEstudiante;
                         ptrInicio = objEstudiante;
                         Salir = true;
                     }else{
-                        objEstudiante.ptrAbajo = ptrAuxSig;
-                        objEstudiante.ptrArriba = ptrAuxAnt;
-                        ptrAuxAnt.ptrAbajo = objEstudiante;
-                        ptrAuxSig.ptrArriba = objEstudiante;
-                        Salir = true;
+                        if( ptrAuxSig.clave == pclave ){
+                          System.out.println("DATO YA EXISTENTE");
+                          Salir = true;
+                        }else{
+                             System.out.println("SOlo entra si ya hay registros y si son mayores, AQUI RETROCEDE");
+                              objEstudiante.ptrAbajo = ptrAuxSig;
+                            objEstudiante.ptrArriba = ptrAuxAnt;
+                            ptrAuxAnt.ptrAbajo = objEstudiante;
+                            ptrAuxSig.ptrArriba = objEstudiante;
+                            Salir = true;
+                        }
+                       
+                            
+        
+                           
+                       
+                        
                     }
                 }
+               
+                
+              
             }  
             if(ptrAuxAnt==ptrFinal){  // El codigo del nodo es superior a todos los de la lista
                 objEstudiante.ptrArriba = ptrAuxAnt;
