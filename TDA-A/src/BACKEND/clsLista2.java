@@ -3,14 +3,31 @@ package BACKEND;
 
 
 public class clsLista2 {
-    private clsEstudiante ptrInicio, ptrFinal;   
+    //datos grados
+    //estos datos me serviran para poder enlazar ambas listas y poder ingresas a los ESTUDIANTES
+    private clsGrado ptrInicioGRADO, ptrFinalGRADO;   
+
+    //estudiantes
+    private clsEstudiante ptrInicio, ptrFinal; 
+    
     
     public clsLista2() {
+        //GRADO
+          ptrInicioGRADO = null;
+          ptrFinalGRADO = null;
+        //ESTUDIANTES
          ptrInicio = null;
          ptrFinal = null;
     }
+    public boolean ListaVaciagrado(){
+        boolean Resp = false;
+        if(ptrInicioGRADO == null){
+            Resp = true;
+        }
+        return Resp;
+    } 
     
-     public boolean ListaVacia(){
+    public boolean ListaVacia(){
         boolean Resp = false;
         if(ptrInicio == null){
             Resp = true;
@@ -19,6 +36,8 @@ public class clsLista2 {
     } 
     
     public void Insertar(int pclave, String pnombre, String pfecha, String pcorreo, String pdireccion, int pgrado, String pseccion){
+        clsGrado objGrado = new clsGrado();
+        
         /*Creación del nodo*/
         clsEstudiante objEstudiante = new clsEstudiante();
         objEstudiante.clave = pclave; 
@@ -26,68 +45,86 @@ public class clsLista2 {
         objEstudiante.fecha = pfecha;
         objEstudiante.correo = pcorreo;
         objEstudiante.direccion = pdireccion;
-         objEstudiante.grado = pgrado;
+        objEstudiante.grado = pgrado;
         objEstudiante.seccion = pseccion;
         //punteros
         objEstudiante.ptrArriba = null;
         objEstudiante.ptrAbajo = null;
         boolean Salir = false;
+        boolean SalirGRADO = false;
         //imprimir que valores vienen - tiene que venir los mismos valores
         System.out.println(pclave);
         System.out.println(objEstudiante.clave);
                             
-                    
-        if(ListaVacia()==true){  // Lista Vacia
-            ptrInicio = objEstudiante;
-            ptrFinal = objEstudiante;
-        }else{  //La lista tiene registros 
-            clsEstudiante ptrAuxSig = ptrInicio;
-            clsEstudiante ptrAuxAnt = null;
-        
-            while(ptrAuxSig!= null  && Salir == false){
+        if(ListaVaciagrado()==true){ 
+            ptrInicioGRADO = objGrado;
+            ptrFinalGRADO = objGrado;
+        }else{
                 
-                if(ptrAuxSig.clave < pclave && ptrAuxSig.clave != pclave ){
-                ptrAuxAnt = ptrAuxSig;  //SACO COPIA
-                ptrAuxSig = ptrAuxSig.ptrAbajo;
-                }else{
+
+            if(ListaVacia()==true){  // Lista Vacia estudiante
+                ptrInicio = objEstudiante;
+                ptrFinal = objEstudiante;
+            }else{  //La lista tiene registros 
+                //grados
+                clsGrado ptrAuxSigGRADO = ptrInicioGRADO;
+                clsGrado ptrAuxAntGrado = null;
+                
+                //estudiante
+                clsEstudiante ptrAuxSig = ptrInicio;
+                clsEstudiante ptrAuxAnt = null;
+
+                //siclo
+                while(ptrAuxSigGRADO!= null  && SalirGRADO == false){
                     
-                    if(ptrAuxSig == ptrInicio){  //VALIDO SI ES EL INICIO DE LA LISTA
-                        objEstudiante.ptrAbajo = ptrAuxSig;
-                        ptrAuxSig.ptrArriba = objEstudiante;
-                        ptrInicio = objEstudiante;
-                        Salir = true;
-                    }else{
-                        if( ptrAuxSig.clave == pclave ){
-                          System.out.println("DATO YA EXISTENTE");
-                          Salir = true;
+                    while(ptrAuxSig!= null  && Salir == false){
+                        if(pgrado == ptrAuxSigGRADO.codigo && pseccion == ptrAuxSigGRADO.seccion ){
+                              if(ptrAuxSig.clave < pclave && ptrAuxSig.clave != pclave ){
+                            ptrAuxAnt = ptrAuxSig;  //SACO COPIA
+                            ptrAuxSig = ptrAuxSig.ptrAbajo;
+                            }else{
+
+                                if(ptrAuxSig == ptrInicio){  //VALIDO SI ES EL INICIO DE LA LISTA
+                                    if( ptrAuxSig.clave == pclave ){
+                                        System.out.println("DATO YA EXISTENTE");
+                                        Salir = true;
+                                    }else{
+                                        objEstudiante.ptrAbajo = ptrAuxSig;
+                                        ptrAuxSig.ptrArriba = objEstudiante;
+                                        ptrInicio = objEstudiante;
+                                        Salir = true;
+                                    }
+                                }else{
+                                    if( ptrAuxSig.clave == pclave ){
+                                      System.out.println("DATO YA EXISTENTE");
+                                      Salir = true;
+                                    }else{
+                                        System.out.println("SOlo entra si ya hay registros y si son mayores, AQUI RETROCEDE");
+                                        objEstudiante.ptrAbajo = ptrAuxSig;
+                                        objEstudiante.ptrArriba = ptrAuxAnt;
+                                        ptrAuxAnt.ptrAbajo = objEstudiante;
+                                        ptrAuxSig.ptrArriba = objEstudiante;
+                                        Salir = true;
+                                    }
+                                }
+                            }  
                         }else{
-                             System.out.println("SOlo entra si ya hay registros y si son mayores, AQUI RETROCEDE");
-                              objEstudiante.ptrAbajo = ptrAuxSig;
-                            objEstudiante.ptrArriba = ptrAuxAnt;
-                            ptrAuxAnt.ptrAbajo = objEstudiante;
-                            ptrAuxSig.ptrArriba = objEstudiante;
+                            System.out.println("la seccion o el codigo de grado no coinciden");
                             Salir = true;
+                             
                         }
                        
-                            
-        
-                           
-                       
-                        
                     }
-                }
+                }  
                
-                
-              
-            }  
-            if(ptrAuxAnt==ptrFinal){  // El codigo del nodo es superior a todos los de la lista
-                objEstudiante.ptrArriba = ptrAuxAnt;
-                ptrAuxAnt.ptrAbajo = objEstudiante;
-                ptrFinal = objEstudiante;
-            }
-        }    
+                if(ptrAuxAnt==ptrFinal){  // El codigo del nodo es superior a todos los de la lista
+                    objEstudiante.ptrArriba = ptrAuxAnt;
+                    ptrAuxAnt.ptrAbajo = objEstudiante;
+                    ptrFinal = objEstudiante;
+                }
+            }    
+        }
      }
-    
     public int ExtraerCola(){
         int Resp = 0;
      /*   if(!ListaVacia()){

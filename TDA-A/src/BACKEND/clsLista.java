@@ -25,6 +25,7 @@ public class clsLista {
         objGrado.grado = pgrado;
         objGrado.nivel = pnivel;
         objGrado.profesor = pprofesor;
+        
         objGrado.ptrAdelante = null;
         objGrado.ptrAtras = null;
         boolean Salir = false;
@@ -44,16 +45,25 @@ public class clsLista {
                 }else
                 {
                     if(ptrAuxSig == ptrInicio){  //VALIDO SI ES EL INICIO DE LA LISTA
+                         if( ptrAuxSig.codigo == pcodigo ){
+                            System.out.println("DATO YA EXISTENTE");
+                            Salir = true;
+                        }else{
                         objGrado.ptrAdelante = ptrAuxSig;
                         ptrAuxSig.ptrAtras = objGrado;
                         ptrInicio = objGrado;
-                         System.out.println("primer dato");
+                        System.out.println("primer dato");
                         Salir = true;
+                        
+                         }
+                        
+                        
                     }else{
                         if( ptrAuxSig.codigo == pcodigo ){
                             System.out.println("DATO YA EXISTENTE");
                             Salir = true;
                         }else{
+                            System.out.println("SOlo entra si ya hay registros y si son mayores, AQUI RETROCEDE");
                             objGrado.ptrAdelante = ptrAuxSig;
                             objGrado.ptrAtras = ptrAuxAnt;
                             ptrAuxAnt.ptrAdelante = objGrado;

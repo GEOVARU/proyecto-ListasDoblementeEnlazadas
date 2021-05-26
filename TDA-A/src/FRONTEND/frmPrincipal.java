@@ -183,7 +183,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jLabel10.setText("CORREO");
 
-        jLabel11.setText("GRADO");
+        jLabel11.setText("Codigo-GRADO");
 
         jLabel12.setText("DIRECCION");
 
@@ -407,13 +407,35 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ctListaActionPerformed
 
     private void btnAgregarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarListaActionPerformed
-        
-        MiLista.Insertar( Integer.valueOf(ctLista.getText()), ctSeccion.getText(),  ctGrado.getText(),  Integer.valueOf(ctNivel.getText()),  ctProfesor.getText() );
+         if(!"".equals(ctLista.getText()) ){
+             if(!"".equals(ctSeccion.getText()) ){
+                 if(!"".equals(ctGrado.getText()) ){
+                     if(!"".equals(ctNivel.getText()) ){
+                         if(!"".equals(ctProfesor.getText()) ){
+                              MiLista.Insertar( Integer.valueOf(ctLista.getText()), ctSeccion.getText(),  ctGrado.getText(),  Integer.valueOf(ctNivel.getText()),  ctProfesor.getText() );
         
         lbLista.setText(lbLista.getText() + ", " + ctLista.getText());
         ctLista.setText("");
         ctListaEnlanzada.setText( MiLista.Mostrar());    
         areaLista.setText( MiLista.Mostrar()); 
+                         
+             
+         }else{
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar Grado", JOptionPane.ERROR_MESSAGE); 
+        }
+                          }else{
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar Grado", JOptionPane.ERROR_MESSAGE); 
+        }
+                      }else{
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar Grado", JOptionPane.ERROR_MESSAGE); 
+        }
+                  }else{
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar Grado", JOptionPane.ERROR_MESSAGE); 
+        }
+              }else{
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar Grado", JOptionPane.ERROR_MESSAGE); 
+        }
+       
     }//GEN-LAST:event_btnAgregarListaActionPerformed
 
     private void ctSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctSeccionActionPerformed

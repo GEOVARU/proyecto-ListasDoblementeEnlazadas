@@ -441,7 +441,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
-            <Property name="text" type="java.lang.String" value="GRADO"/>
+            <Property name="text" type="java.lang.String" value="Codigo-GRADO"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
