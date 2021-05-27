@@ -126,7 +126,7 @@ public class clsListas {
                 Resp = Resp + "     " + String.valueOf(objGrado.codigo) + "-"+ String.valueOf(objGrado.seccion) + "-" +  String.valueOf(objGrado.grado)+ "-" +  String.valueOf(objGrado.nivel)+ "-" +  String.valueOf(objGrado.profesor);
             }
             objGrado = objGrado.ptrAdelante;
-               System.out.println(Resp);
+           
         }
         return Resp;
     }
@@ -142,9 +142,8 @@ public class clsListas {
                 Resp = Resp + ", " + String.valueOf(objGrado.codigo);
             }
             objGrado = objGrado.ptrAtras;
-              System.out.println(Resp);
         }
-        System.out.println(Resp);
+        //System.out.println(Resp);
         return Resp;
     }
     
@@ -186,7 +185,7 @@ public class clsListas {
         //imprimir que valores vienen - tiene que venir los mismos valores
         //System.out.println(pclave);
         //System.out.println(objEstudiante.clave);
-            if(ListaVacia()==true){  // Lista Vacia estudiante
+            if(ListaVaciae()==true){  // Lista Vacia estudiante
                 ptrInicioe = objEstudiante;
                 ptrFinale = objEstudiante;
             }else{  //La lista tiene registros 

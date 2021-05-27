@@ -486,47 +486,37 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void btnAgregarLista2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLista2ActionPerformed
         if(!"".equals(ctLista2.getText()) ){
             if(!"".equals(ct2Nombre.getText()) ){
-                 if(!"".equals(ct2Fecha.getText()) ){
-                      if(!"".equals(ct2Correo.getText()) ){
-                           if(!"".equals(ct2Direccion.getText()) ){
-                               if(!"".equals(ct2Grado.getText()) ){
-                                   if(!"".equals(ct2Seccion.getText()) ){
-                 
-            
-            MiLista.Insertare( Integer.valueOf(ctLista2.getText()), ct2Nombre.getText(),  ct2Fecha.getText(),  ct2Correo.getText(),  ct2Direccion.getText() ,  Integer.valueOf(ct2Grado.getText()),  ct2Seccion.getText());
-            /*lbLista.setText(lbLista.getText() + ", " + ctLista.getText()); */
-            ctLista2.setText("");
-            /* ctListaEnlanzada.setText( MiLista.Mostrar());    */
-            areaLista2.setText( MiLista.mostrarTodo());
-            
-            
-             }else{
-            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
-        }
-                                    }else{
-            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
-        }
+                if(!"".equals(ct2Fecha.getText()) ){
+                    if(!"".equals(ct2Correo.getText()) ){
+                        if(!"".equals(ct2Direccion.getText()) ){
+                            if(!"".equals(ct2Grado.getText()) ){
+                                if(!"".equals(ct2Seccion.getText()) ){
+                                    MiLista.Insertare( Integer.valueOf(ctLista2.getText()), ct2Nombre.getText(),  ct2Fecha.getText(),  ct2Correo.getText(),  ct2Direccion.getText() ,  Integer.valueOf(ct2Grado.getText()),  ct2Seccion.getText());
+                                    /*lbLista.setText(lbLista.getText() + ", " + ctLista.getText()); */
+                                    ctLista2.setText("");
+                                    /* ctListaEnlanzada.setText( MiLista.Mostrar());    */
+                                    areaLista2.setText( MiLista.Mostrare());
                                 }else{
-            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
-        }
-              }else{
-            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
-        }
-              }else{
-            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
-        }
-              }else{
-            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
-        }
-            
-            
+                                        JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
+                                }
+                            }else{
+                                JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
+                            }
+                        }else{
+                           JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
+            }
         }else{
             JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Error al insertar", JOptionPane.ERROR_MESSAGE); 
         }
-        
-       
-        
-        
     }//GEN-LAST:event_btnAgregarLista2ActionPerformed
 
     /**
