@@ -185,58 +185,76 @@ public class clsListas {
         //imprimir que valores vienen - tiene que venir los mismos valores
         //System.out.println(pclave);
         //System.out.println(objEstudiante.clave);
-            if(ListaVaciae()==true){  // Lista Vacia estudiante
-                ptrInicioe = objEstudiante;
-                ptrFinale = objEstudiante;
-            }else{  //La lista tiene registros 
-                
-                //estudiante
-                clsEstudiante ptrAuxSig = ptrInicioe;
-                clsEstudiante ptrAuxAnt = null;
+        String Resp = "";
+        clsGrado objGrado = ptrInicio;
+        //revisamos que haya por lo menos un dato en la lista
+        while(objGrado!= null){
+            //System.out.println(String.valueOf(objGrado.codigo));
+            if(Resp.equals("")){
+                Resp = String.valueOf(objGrado.codigo) + ","+ String.valueOf(objGrado.seccion) + "," +  String.valueOf(objGrado.grado)+ "," +  String.valueOf(objGrado.nivel)+ "," +  String.valueOf(objGrado.profesor) ;           
+            
+                if(objGrado.codigo == pgrado){
+                    //System.out.println(Resp);
 
-                while(ptrAuxSig!= null  && Salir == false){
-                    if(ptrAuxSig.clave < pclave && ptrAuxSig.clave != pclave ){
-                    ptrAuxAnt = ptrAuxSig;  //SACO COPIA
-                    ptrAuxSig = ptrAuxSig.ptrAbajo;
-                    System.out.println("es mayor a todos");
-                    
-                    
-                    }else{
-                        if(ptrAuxSig == ptrInicioe){  //VALIDO SI ES EL INICIO DE LA LISTA
-                            if( ptrAuxSig.clave == pclave ){
-                                System.out.println("DATO YA EXISTENTE");
-                                Salir = true;
+                    if(ListaVaciae()==true){  // Lista Vacia estudiante
+                        ptrInicioe = objEstudiante;
+                        ptrFinale = objEstudiante;
+                    }else{  //La lista tiene registros 
+
+                        //estudiante
+                        clsEstudiante ptrAuxSig = ptrInicioe;
+                        clsEstudiante ptrAuxAnt = null;
+
+                        while(ptrAuxSig!= null  && Salir == false){
+                            if(ptrAuxSig.clave < pclave && ptrAuxSig.clave != pclave ){
+                            ptrAuxAnt = ptrAuxSig;  //SACO COPIA
+                            ptrAuxSig = ptrAuxSig.ptrAbajo;
+                            System.out.println("es mayor a todos");
+
+
                             }else{
-                                objEstudiante.ptrAbajo = ptrAuxSig;
-                                ptrAuxSig.ptrArriba = objEstudiante;
-                                ptrInicioe = objEstudiante;
-                                System.out.println("Es el menor de todos");
-                                Salir = true;
+                                if(ptrAuxSig == ptrInicioe){  //VALIDO SI ES EL INICIO DE LA LISTA
+                                    if( ptrAuxSig.clave == pclave ){
+                                        System.out.println("DATO YA EXISTENTE");
+                                        Salir = true;
+                                    }else{
+                                        objEstudiante.ptrAbajo = ptrAuxSig;
+                                        ptrAuxSig.ptrArriba = objEstudiante;
+                                        ptrInicioe = objEstudiante;
+                                        System.out.println("Es el menor de todos");
+                                        Salir = true;
+                                    }
+                                }else{
+                                    if( ptrAuxSig.clave == pclave ){
+                                      System.out.println("DATO YA EXISTENTE");
+                                      Salir = true;
+                                    }else{
+                                        System.out.println("SOlo entra si ya hay registros y si son mayores, AQUI RETROCEDE");
+                                        objEstudiante.ptrAbajo = ptrAuxSig;
+                                        objEstudiante.ptrArriba = ptrAuxAnt;
+                                        ptrAuxAnt.ptrAbajo = objEstudiante;
+                                        ptrAuxSig.ptrArriba = objEstudiante;
+                                        Salir = true;
+
+                                    }
+                                }  
                             }
-                        }else{
-                            if( ptrAuxSig.clave == pclave ){
-                              System.out.println("DATO YA EXISTENTE");
-                              Salir = true;
-                            }else{
-                                System.out.println("SOlo entra si ya hay registros y si son mayores, AQUI RETROCEDE");
-                                objEstudiante.ptrAbajo = ptrAuxSig;
-                                objEstudiante.ptrArriba = ptrAuxAnt;
-                                ptrAuxAnt.ptrAbajo = objEstudiante;
-                                ptrAuxSig.ptrArriba = objEstudiante;
-                                Salir = true;
-                               
-                            }
-                        }  
+                        }
+
+                        if(ptrAuxAnt==ptrFinale){  // El codigo del nodo es superior a todos los de la lista
+                            objEstudiante.ptrArriba = ptrAuxAnt;
+                            ptrAuxAnt.ptrAbajo = objEstudiante;
+                            ptrFinale = objEstudiante;
+                        }    
                     }
                 }
-                
-                if(ptrAuxAnt==ptrFinale){  // El codigo del nodo es superior a todos los de la lista
-                    objEstudiante.ptrArriba = ptrAuxAnt;
-                    ptrAuxAnt.ptrAbajo = objEstudiante;
-                    ptrFinale = objEstudiante;
-            }    
+            }else{
+           
+                Resp = Resp + "     " + String.valueOf(objGrado.codigo) + "-"+ String.valueOf(objGrado.seccion) + "-" +  String.valueOf(objGrado.grado)+ "-" +  String.valueOf(objGrado.nivel)+ "-" +  String.valueOf(objGrado.profesor);
+            }
+        objGrado = objGrado.ptrAdelante;
         }
-     }
+    }
     public int ExtraerColae(){
         int Resp = 0;
      /*   if(!ListaVacia()){
@@ -285,8 +303,8 @@ public class clsListas {
      
     
      public String mostrarTodo(){
-          String Resp = "";
-            String Respe = "";
+        String Resp = "";
+        String Respe = "";
         String ES  = "";
         clsGrado objGrado = ptrInicio;
         //revisamos que haya por lo menos un dato en la lista
