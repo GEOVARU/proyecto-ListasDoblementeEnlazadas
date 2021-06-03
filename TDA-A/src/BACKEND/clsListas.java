@@ -5,6 +5,13 @@
  */
 package BACKEND;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 /**
  *
  * @author geovanni
@@ -15,7 +22,7 @@ public class clsListas {
     
     private clsGrado ptrInicio, ptrFinal;   
     //estudiante
-      private clsEstudiante ptrInicioe, ptrFinale; 
+    private clsEstudiante ptrInicioe, ptrFinale; 
 
     public clsListas() {
           ptrInicio = null;
@@ -131,7 +138,6 @@ public class clsListas {
         return Resp;
     }
     
-    
     public String MostrarInverso(){
         String Resp ="";
         clsGrado objGrado = ptrFinal;
@@ -146,18 +152,9 @@ public class clsListas {
         //System.out.println(Resp);
         return Resp;
     }
-    
-    
+
     //////////***************estudiante
-    
-    
-    
-    
-    
     //estudiantes
-  
-    
-  
     /** funciones **/
     public boolean ListaVaciae(){
         boolean Resp = false;
@@ -335,7 +332,7 @@ public class clsListas {
         }
         return Resp;
     }
-     public String Mostrare(){
+    public String Mostrare(){
         String Resp = "";
         String ES  = "";
         clsEstudiante objEstudiante = ptrInicioe;
@@ -354,8 +351,7 @@ public class clsListas {
         return Resp;
     }
      
-    
-     public String mostrarTodo(){
+    public String mostrarTodo(){
         String Resp = "";
         String Respe = "";
         String ES  = "";
@@ -388,13 +384,6 @@ public class clsListas {
         }
         return Respe + Resp;
     }
-    
-    
-    
-    
-    
-    
-    
     
     
 }
