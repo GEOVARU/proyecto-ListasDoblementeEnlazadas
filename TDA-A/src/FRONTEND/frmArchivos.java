@@ -115,7 +115,7 @@ public class frmArchivos extends javax.swing.JFrame {
         File Archivo = fc.getSelectedFile();
         
         try{
-            FileReader fr = new FileReader(Archivo);
+            FileReader fr = new FileReader(Archivo); 
             BufferedReader br = new BufferedReader(fr);
             String Texto = "";
             String Linea = "";
