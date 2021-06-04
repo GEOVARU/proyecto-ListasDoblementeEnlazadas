@@ -30,16 +30,14 @@ public class clsListas {
           //ESTUDIANTES
          ptrInicioe = null;
          ptrFinale = null;
-    }
-    
+    } 
     public boolean ListaVacia(){
         boolean Resp = false;
         if(ptrInicio == null){
             Resp = true;
         }
         return Resp;
-    } 
-    
+    }  
     public void Insertar(int pcodigo, String pseccion, String pgrado, int pnivel, String pprofesor){
         /*Creación del nodo*/
         clsGrado objGrado = new clsGrado();
@@ -103,7 +101,6 @@ public class clsListas {
             }
         }    
      }
-    
     public int ExtraerCola(){
         int Resp = 0;
      /*   if(!ListaVacia()){
@@ -118,7 +115,6 @@ public class clsListas {
          */
         return Resp;
     }    
-    
     public String Mostrar(){
         String Resp = "";
         String ES  = "";
@@ -136,8 +132,7 @@ public class clsListas {
            
         }
         return Resp;
-    }
-    
+    } 
     public String MostrarInverso(){
         String Resp ="";
         clsGrado objGrado = ptrFinal;
@@ -350,7 +345,6 @@ public class clsListas {
         }
         return Resp;
     }
-     
     public String mostrarTodo(){
         String Resp = "";
         String Respe = "";
@@ -383,6 +377,9 @@ public class clsListas {
             System.out.println(Respe);
         }
         return Respe + Resp;
+    }
+    public void Insertare(int parseInt, String part, String part0, int parseInt0, String part1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
